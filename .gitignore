@@ -4,6 +4,31 @@
 # belong in git's global ignore instead:
 # `$XDG_CONFIG_HOME/git/ignore` or `~/.config/git/ignore`
 
+# macOS system file
+.DS_Store
+
+# Installed packages
+node_modules/
+
+# dotenv
+.env
+.env.*
+
+# SQLite DB
+*.sqlite3
+*.sqlite3-journal
+
+# Coverage reports
+coverage/
+
+# Pry or Byebug history
+.byebug_history
+
+# Yarn
+.yarn/*
+.pnp.*
+.yarnrc.yml
+
 # Ignore bundler config.
 /.bundle
 
