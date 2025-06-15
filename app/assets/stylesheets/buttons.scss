@@ -1,0 +1,11 @@
+@use 'variables';
+
+.btn-primary {
+  background-color: variables.$primary-color;
+  border: none;
+  width: 100%;
+  text-align: center;
+  color: white;
+  padding: 16px 0;
+  font-weight: bold;
+}
