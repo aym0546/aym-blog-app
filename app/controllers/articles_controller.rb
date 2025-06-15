@@ -11,4 +11,18 @@ class ArticlesController < ApplicationController
         @article = Article.new
     end
 
+    def create
+        @article = Article.new(article_params)
+        if @article.save # 保存したら、その作成したページに飛ぶ
+            redirect_to article_path(@article)
+        else
+            render :new, status: :unprocessable_entity
+        end
+    end
+
+    private
+    def article_params
+        params.require(:article).permit(:title, :content)
+    end
+
 end
