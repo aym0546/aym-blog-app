@@ -14,8 +14,9 @@ class ArticlesController < ApplicationController
     def create
         @article = Article.new(article_params)
         if @article.save # 保存したら、その作成したページに飛ぶ
-            redirect_to article_path(@article)
-        else
+            redirect_to article_path(@article), notice: '保存できたよ'
+        else # 保存されなかった時、フォームを再表示
+            flash.now[:error] = '保存に失敗しました'
             render :new, status: :unprocessable_entity
         end
     end

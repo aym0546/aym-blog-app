@@ -379,6 +379,7 @@ DEPENDENCIES
   cssbundling-rails (~> 1.4)
   debug
   faker
+  i18n (>= 1.14.0)
   jbuilder
   jsbundling-rails
   kamal
