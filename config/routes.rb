@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root to: 'articles#index'
 
-  resources :articles, only: [:show, :new, :create]
+  resources :articles, only: [:show, :new, :create, :edit, :update]
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
