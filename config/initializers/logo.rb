@@ -3,8 +3,8 @@ Rails.application.config.after_initialize do
 
 
            ／＞　 フ
-          | 　_　_| 
-        ／` ミ＿xノ 
+          | 　_　_|#{' '}
+        ／` ミ＿xノ#{' '}
        /　　　　 |
       /　 ヽ　　 ﾉ
       │　　|　|　|
