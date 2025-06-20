@@ -23,6 +23,8 @@ gem 'jbuilder'
 gem 'faker'
 # gem 'haml-rails' erb => haml 変換時に使用
 gem 'annotate'
+gem 'better_errors'
+gem 'binding_of_caller'
 gem 'hamlit'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
