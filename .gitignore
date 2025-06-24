@@ -18,6 +18,10 @@ node_modules/
 *.sqlite3
 *.sqlite3-journal
 
+# PostgreSQL log
+postgres.log
+logfile
+
 # Coverage reports
 coverage/
 
