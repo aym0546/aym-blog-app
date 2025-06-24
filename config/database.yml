@@ -19,3 +19,8 @@ production:
   username: blogapp
   password: <%= ENV['DATABASE_PASSWORD'] %>
   host: <%= ENV['DATABASE_HOST'] %>
+
+  connects_to:
+    database:
+      writing: <%= ENV['DATABASE_URL'] %>
+      cache: <%= ENV['DATABASE_URL'] %>
