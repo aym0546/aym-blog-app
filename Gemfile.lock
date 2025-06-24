@@ -125,6 +125,9 @@ GEM
       responders
       warden (~> 1.2.3)
     dotenv (3.1.8)
+    dotenv-rails (3.1.8)
+      dotenv (= 3.1.8)
+      railties (>= 6.1)
     drb (2.2.3)
     ed25519 (1.4.0)
     erb (5.0.1)
@@ -432,6 +435,7 @@ DEPENDENCIES
   cssbundling-rails (~> 1.4)
   debug
   devise
+  dotenv-rails
   faker
   haml-rails
   hamlit

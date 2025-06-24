@@ -11,8 +11,8 @@
 node_modules/
 
 # dotenv
-.env
-.env.*
+# Ignore all environment files.
+/.env*
 
 # SQLite DB
 *.sqlite3
@@ -31,9 +31,6 @@ coverage/
 
 # Ignore bundler config.
 /.bundle
-
-# Ignore all environment files.
-/.env*
 
 # Ignore all logfiles and tempfiles.
 /log/*
