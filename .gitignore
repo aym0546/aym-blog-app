@@ -11,12 +11,16 @@
 node_modules/
 
 # dotenv
-.env
-.env.*
+# Ignore all environment files.
+/.env*
 
 # SQLite DB
 *.sqlite3
 *.sqlite3-journal
+
+# PostgreSQL log
+postgres.log
+logfile
 
 # Coverage reports
 coverage/
@@ -31,9 +35,6 @@ coverage/
 
 # Ignore bundler config.
 /.bundle
-
-# Ignore all environment files.
-/.env*
 
 # Ignore all logfiles and tempfiles.
 /log/*

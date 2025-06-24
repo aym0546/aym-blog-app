@@ -8,8 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-john = User.create!(email: 'john@examile.com', password: 'password')
-emily = User.create!(email: 'emily@examile.com', password: 'password')
+john = User.create!(email: 'john@examle.com', password: 'password')
+emily = User.create!(email: 'emily@examle.com', password: 'password')
 
 5.times do
     john.articles.create(
