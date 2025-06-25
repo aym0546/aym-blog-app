@@ -1,8 +1,6 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  pool: 5
-  timeout: 5000
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
@@ -14,13 +12,22 @@ test:
   database: blogapp_test
 
 production:
-  <<: *default
-  database: blogapp_production
-  username: blogapp
-  password: <%= ENV['DATABASE_PASSWORD'] %>
-  host: <%= ENV['DATABASE_HOST'] %>
-
-  connects_to:
-    database:
-      writing: <%= ENV['DATABASE_URL'] %>
-      cache: <%= ENV['DATABASE_URL'] %>
+  primary: &primary_production
+    <<: *default
+    database: blogapp_production
+    username: blogapp
+    password: <%= ENV['DATABASE_PASSWORD'] %>
+    host: <%= ENV['DATABASE_HOST'] %>
+  cache:
+    <<: *primary_production
+    database: blogapp_production_cache
+    migrations_paths: db/cache_migrate
+  queue:
+    <<: *primary_production
+    database: blogapp_production_queue
+    username: <%= ENV["DATABASE_USERNAME"] %>
+    migrations_paths: db/queue_migrate
+  cable:
+    <<: *primary_production
+    database: blogapp_production_cable
+    migrations_paths: db/cable_migrate
