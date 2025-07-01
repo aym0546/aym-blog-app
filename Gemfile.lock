@@ -474,6 +474,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   kamal
+  mini_magick
   pg (>= 0.18, < 2.0)
   propshaft
   pry-byebug
