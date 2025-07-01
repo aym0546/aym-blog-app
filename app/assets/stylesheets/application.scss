@@ -8,6 +8,8 @@
 @use 'flash';
 @use 'common';
 @use 'profile';
+@use 'actiontext';
+@use 'trix/dist/trix';
 
 html {
   word-spacing: 1px;
