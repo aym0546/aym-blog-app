@@ -5,7 +5,6 @@
 #  id         :integer          not null, primary key
 #  user_id    :integer          not null
 #  title      :string           not null
-#  content    :text             not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -16,17 +15,13 @@
 
 class Article < ApplicationRecord
     has_one_attached :eyecatch
+    has_rich_text :content
 
     validates :title, presence: true
     validates :title, length: { minimum: 2, maximum: 100 }
     validates :title, format: { with: /\A(?!\@)/ } # 先頭が@は許可しない
 
     validates :content, presence: true
-    validates :content, length: { minimum: 10 }
-    validates :content, uniqueness: true
-
-    # title + content が 合計100文字以上ないと許可しない
-    validate :validate_title_and_content_length
 
     has_many :comments, dependent: :destroy
     has_many :likes, dependent: :destroy
@@ -44,9 +39,4 @@ class Article < ApplicationRecord
         likes.count
     end
 
-    private
-    def validate_title_and_content_length
-        char_count = self.title.length + self.content.length
-        errors.add(:content, '100文字以上で！！') unless char_count > 100 # contentカラムにエラーをadd
-    end
 end

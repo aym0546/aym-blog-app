@@ -5,3 +5,6 @@ import '@hotwired/turbo-rails';
 // これにより link_to の data-method="delete" などが機能する
 import Rails from '@rails/ujs';
 Rails.start();
+
+import "trix"
+import "@rails/actiontext"
