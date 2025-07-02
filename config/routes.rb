@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resource :like, only: [:create, :destroy]
   end
 
+  resources :accounts, only: [:show]
+
   resource :profile, only: [:show, :edit, :update]
    # userに対してindexは1つなのでindexは不要
   resources :favorites, only: [:index]
