@@ -34,6 +34,11 @@ class User < ApplicationRecord
     following_relationships.create!(following_id: user.id) # follower_id は current_user が自動的に指定される
   end
 
+  def unfollow!(user)
+    relation = following_relationships.find_by!(following_id: user.id)
+    relation.destroy!
+  end
+
   def prepare_profile
     profile || build_profile
   end
