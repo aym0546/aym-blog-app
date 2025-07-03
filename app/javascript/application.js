@@ -10,10 +10,13 @@ import 'trix';
 import '@rails/actiontext';
 
 import $ from 'jquery';
+import axios from 'axios';
 
-// ページがロード終了し.article_titleがクリックされたら、alertを表示する
+// ページがロード終了し.article_titleがクリックされたら、root_pathのhtmlが返ってくる
 document.addEventListener('DOMContentLoaded', () => {
   $('.article_title').on('click', () => {
-    window.alert('CLICKED!!');
+    axios.get('/').then((response) => {
+      console.log(response);
+    });
   });
 });
