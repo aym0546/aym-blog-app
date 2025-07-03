@@ -23,6 +23,7 @@ gem 'jbuilder'
 gem 'faker'
 # gem 'haml-rails' erb => haml 変換時に使用
 gem 'annotate'
+gem 'active_decorator'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'devise'
