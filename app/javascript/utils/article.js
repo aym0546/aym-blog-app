@@ -34,6 +34,29 @@ document.addEventListener('turbo:load', () => {
     $('.comment-text-area').removeClass('hidden');
   });
 
+  // comment 投稿機能
+  $('.add-comment-btn').on('click', () => {
+    const content = $('#comment_content').val();
+    // comment: content がない時に alert を表示
+    if (!content) {
+      window.alert('コメントを入力してください');
+    } else {
+      axios
+        .post(`/articles/${articleId}/comments`, {
+          comment: { content: content },
+        })
+        // 成功したら、レスポンスをcomment表示に追加
+        .then((res) => {
+          const comment = res.data;
+          $('.comments-container').append(
+            `<div class="article_comment"><p>${comment.content}</p></div>`
+          );
+          // 送信後は textarea を空にする
+          $('#comment_content').val('');
+        });
+    }
+  });
+
   // like の状況を判定してハートを出し分ける、like を変更する
   axios.get(`/articles/${articleId}/like`).then((response) => {
     const hasLiked = response.data.hasLiked;
