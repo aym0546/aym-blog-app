@@ -14,6 +14,21 @@ const handleHeartDisplay = (hasLiked) => {
   }
 };
 
+// ボタンを押したら comment-form を表示する
+const handleCommentForm = () => {
+  $('.show-comment-form').on('click', () => {
+    $('.show-comment-form').addClass('hidden');
+    $('.comment-text-area').removeClass('hidden');
+  });
+};
+
+// コメントをコンテナに追加して表示する
+const appendNewComment = (comment) => {
+  $('.comments-container').append(
+    `<div class="article_comment"><p>${comment.content}</p></div>`
+  );
+};
+
 document.addEventListener('turbo:load', () => {
   const dataset = $(`#article-show`).data();
   const articleId = dataset.articleId;
@@ -22,17 +37,11 @@ document.addEventListener('turbo:load', () => {
   axios.get(`/articles/${articleId}/comments`).then((response) => {
     const comments = response.data;
     comments.forEach((comment) => {
-      $('.comments-container').append(
-        `<div class="article_comment"><p>${comment.content}</p></div>`
-      );
+      appendNewComment(comment);
     });
   });
 
-  // ボタンを押したら comment-form を表示する
-  $('.show-comment-form').on('click', () => {
-    $('.show-comment-form').addClass('hidden');
-    $('.comment-text-area').removeClass('hidden');
-  });
+  handleCommentForm();
 
   // comment 投稿機能
   $('.add-comment-btn').on('click', () => {
@@ -48,9 +57,7 @@ document.addEventListener('turbo:load', () => {
         // 成功したら、レスポンスをcomment表示に追加
         .then((res) => {
           const comment = res.data;
-          $('.comments-container').append(
-            `<div class="article_comment"><p>${comment.content}</p></div>`
-          );
+          appendNewComment(comment);
           // 送信後は textarea を空にする
           $('#comment_content').val('');
         });
