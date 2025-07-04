@@ -1,10 +1,5 @@
 import $ from 'jquery';
-import axios from 'axios';
-
-const csrfToken = document
-  .querySelector('meta[name=csrf-token]')
-  ?.getAttribute('content');
-axios.defaults.headers.common['X-CSRF-Token'] = csrfToken;
+import axios from '../commons/axios';
 
 const handleHeartDisplay = (hasLiked) => {
   if (hasLiked) {
@@ -14,10 +9,8 @@ const handleHeartDisplay = (hasLiked) => {
   }
 };
 
-document.addEventListener('turbo:load', () => {
-  const dataset = $(`#article-show`).data();
-  const articleId = dataset.articleId;
-
+export const setupLikeHandlers = (articleId) => {
+  // like の状況を判定してハートを出し分ける、like を変更する
   axios.get(`/articles/${articleId}/like`).then((response) => {
     const hasLiked = response.data.hasLiked;
     handleHeartDisplay(hasLiked);
@@ -52,4 +45,4 @@ document.addEventListener('turbo:load', () => {
         console.log(e);
       });
   });
-});
+};
