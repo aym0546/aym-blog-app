@@ -18,6 +18,7 @@ document.addEventListener('turbo:load', () => {
   const dataset = $(`#article-show`).data();
   const articleId = dataset.articleId;
 
+  // comment を取得して表示する
   axios.get(`/articles/${articleId}/comments`).then((response) => {
     const comments = response.data;
     comments.forEach((comment) => {
@@ -27,6 +28,13 @@ document.addEventListener('turbo:load', () => {
     });
   });
 
+  // ボタンを押したら comment-form を表示する
+  $('.show-comment-form').on('click', () => {
+    $('.show-comment-form').addClass('hidden');
+    $('.comment-text-area').removeClass('hidden');
+  });
+
+  // like の状況を判定してハートを出し分ける、like を変更する
   axios.get(`/articles/${articleId}/like`).then((response) => {
     const hasLiked = response.data.hasLiked;
     handleHeartDisplay(hasLiked);
