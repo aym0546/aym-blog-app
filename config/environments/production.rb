@@ -55,21 +55,24 @@ Rails.application.configure do
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Set host to be used by links generated in mailer templates.
   config.action_mailer.default_url_options = { host: 'aym-blog-app-32f1f970315f.herokuapp.com' }
 
   # Mailgun
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
     port:           ENV['MAILGUN_SMTP_PORT'],
     address:        ENV['MAILGUN_SMTP_SERVER'],
     user_name:      ENV['MAILGUN_SMTP_LOGIN'],
     password:       ENV['MAILGUN_SMTP_PASSWORD'],
-    domain:         ENV['HEROKU_DOMAIN'],
+    domain:         ENV['MAILGUN_DOMAIN'],
     authentication: :plain,
   }
+
+  config.action_mailer.logger = Logger.new(STDOUT)
+  config.action_mailer.logger.level = Logger::DEBUG
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
