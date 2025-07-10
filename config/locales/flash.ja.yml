@@ -1,0 +1,15 @@
+ja:
+  flash:
+    articles:
+      create:
+        success: '記事を作成しました'
+        failure: '記事の作成に失敗しました'
+      update:
+        success: '記事を更新しました'
+        failure: '記事の更新に失敗しました'
+      destroy:
+        success: '記事を削除しました'
+    profile:
+      update:
+        success: 'プロフィールを更新しました'
+        failure: 'プロフィールの更新に失敗しました'

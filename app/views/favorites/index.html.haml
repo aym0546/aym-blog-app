@@ -1,5 +1,5 @@
 .container
   %h2
-    お気に入りの記事
+    = I18n.t('favorite.favorites')
   - @articles.each do |article|
     = render 'commons/article', article: article

@@ -1,0 +1,7 @@
+ja:
+  application:
+    header:
+      profile: 'プロフィール'
+      likes: 'お気に入り'
+      log_in: 'ログイン'
+      log_out: 'ログアウト'

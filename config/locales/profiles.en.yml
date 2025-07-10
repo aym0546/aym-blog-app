@@ -1,0 +1,13 @@
+en:
+  profile:
+    form:
+      avatar: 'Avatar'
+      nickname: 'Nickname'
+      introduction: 'Introduction'
+      gender: 'Gender'
+      select: 'Please select'
+      birthday: 'Birthday'
+      subscribed: 'Receive notifications'
+      save: 'Save'
+    display:
+      age: 'Unspecified'

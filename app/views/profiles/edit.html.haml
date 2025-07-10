@@ -5,27 +5,27 @@
 
   = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
     %div
-      = f.label :avatar, 'アバター'
+      = f.label :avatar, I18n.t('profile.form.avatar')
     %div
       = f.file_field :avatar
     %div
-      = f.label :nickname, 'ハンドルネーム'
+      = f.label :nickname, I18n.t('profile.form.nickname')
     %div
       = f.text_field :nickname, class: 'text'
     %div
-      = f.label :introduction, '自己紹介'
+      = f.label :introduction, I18n.t('profile.form.introduction')
     %div
       = f.text_area :introduction
     %div
-      = f.label :gender, '性別'
+      = f.label :gender, I18n.t('profile.form.gender')
     %div
-      = f.select :gender, Profile.genders.map { |k, v| [ I18n.t("enum.genders.#{k}"), k ] }, { prompt: "選択してください" }, { class: 'text' }
+      = f.select :gender, Profile.genders.map { |k, v| [ I18n.t("enum.genders.#{k}"), k ] }, { prompt: I18n.t('profile.form.select') }, { class: 'text' }
     %div
-      = f.label :birthday, '生年月日'
+      = f.label :birthday, I18n.t('profile.form.birthday')
     %div
       = f.date_field :birthday, class: 'text'
     %div
-      = f.label :subscribed, '通知を受け取る'
+      = f.label :subscribed, I18n.t('profile.form.subscribed')
       = f.check_box :subscribed
 
-    = f.submit '保存', class: 'btn-primary'
+    = f.submit I18n.t('profile.form.save'), class: 'btn-primary'
