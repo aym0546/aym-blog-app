@@ -1,0 +1,7 @@
+en:
+  enum:
+    genders:
+      male: 'Make'
+      female: 'Female'
+      other: 'Other'
+      unknown: 'Unspecified'

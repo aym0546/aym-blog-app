@@ -1,0 +1,13 @@
+ja:
+  articles:
+    comment_list: 'コメント一覧'
+    eyecatch: 'アイキャッチ画像'
+    title: 'タイトル'
+    content: '内容'
+    save: '保存'
+  container:
+    add_comment: 'コメントを追加'
+  dropdown:
+    edit: '編集する'
+    delete: '削除する'
+    alert: '本当に削除してもよろしいですか？'

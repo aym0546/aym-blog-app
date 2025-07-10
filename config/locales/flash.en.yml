@@ -1,0 +1,15 @@
+en:
+  flash:
+    articles:
+      create:
+        success: 'Article was successfully created'
+        failure: 'Unable to create article'
+      update:
+        success: 'Article was successfully updated'
+        failure: 'Unable to update article'
+      destroy:
+        success: 'Article was successfully deleted'
+    profile:
+      update:
+        success: 'Your profile was successfully updated'
+        failure: 'Unable to update your profile'

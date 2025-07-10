@@ -1,0 +1,14 @@
+ja:
+  profile:
+    form:
+      avatar: 'アバター'
+      nickname: 'ハンドルネーム'
+      introduction: '自己紹介'
+      gender: '性別'
+      select: '選択してください'
+      birthday: '生年月日'
+      subscribed: '通知を受け取る'
+      save: '保存'
+    display:
+      age: '未設定'
+

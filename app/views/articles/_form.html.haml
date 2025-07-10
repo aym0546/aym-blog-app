@@ -4,15 +4,15 @@
       %li= message
   = form_with(model: article, local: true) do |f|
     %div
-      = f.label :eyecatch, 'アイキャッチ'
+      = f.label :eyecatch, I18n.t('articles.eyecatch')
     %div
       = f.file_field :eyecatch
     %div
-      = f.label :title, 'タイトル'
+      = f.label :title, I18n.t('articles.title')
     %div
       = f.text_field :title, class: 'text'
     %div
-      = f.label :content, '内容'
+      = f.label :content, I18n.t('articles.content')
     %div
       = f.rich_text_area :content
-    = f.submit '保存', class: 'btn-primary'
+    = f.submit I18n.t('articles.save'), class: 'btn-primary'

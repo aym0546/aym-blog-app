@@ -1,0 +1,7 @@
+en:
+  application:
+    header:
+      profile: 'Profile'
+      likes: 'Favorite'
+      log_in: 'Log in'
+      log_out: 'Log out'
