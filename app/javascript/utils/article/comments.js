@@ -10,7 +10,7 @@ export const appendNewComment = (comment) => {
 
 export const setupCommentHandlers = (articleId) => {
   // 既存コメント読み込み
-  axios.get(`/articles/${articleId}/comments`).then((response) => {
+  axios.get(`/api/articles/${articleId}/comments`).then((response) => {
     const comments = response.data;
     comments.forEach((comment) => {
       appendNewComment(comment);
@@ -31,7 +31,7 @@ export const setupCommentHandlers = (articleId) => {
       window.alert('コメントを入力してください');
     } else {
       axios
-        .post(`/articles/${articleId}/comments`, {
+        .post(`/api/articles/${articleId}/comments`, {
           comment: { content: content },
         })
         // 成功したら、レスポンスをcomment表示に追加

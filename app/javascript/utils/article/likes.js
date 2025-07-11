@@ -11,14 +11,14 @@ const handleHeartDisplay = (hasLiked) => {
 
 export const setupLikeHandlers = (articleId) => {
   // like の状況を判定してハートを出し分ける、like を変更する
-  axios.get(`/articles/${articleId}/like`).then((response) => {
+  axios.get(`/api/articles/${articleId}/like`).then((response) => {
     const hasLiked = response.data.hasLiked;
     handleHeartDisplay(hasLiked);
   });
 
   $('.inactive-heart').on('click', () => {
     axios
-      .post(`/articles/${articleId}/like`)
+      .post(`/api/articles/${articleId}/like`)
       .then((response) => {
         if (response.data.status === 'ok') {
           $('.active-heart').removeClass('hidden');
@@ -33,7 +33,7 @@ export const setupLikeHandlers = (articleId) => {
 
   $('.active-heart').on('click', () => {
     axios
-      .delete(`/articles/${articleId}/like`)
+      .delete(`/api/articles/${articleId}/like`)
       .then((response) => {
         if (response.data.status === 'ok') {
           $('.inactive-heart').removeClass('hidden');
