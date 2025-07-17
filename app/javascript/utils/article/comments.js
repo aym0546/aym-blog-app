@@ -3,9 +3,10 @@ import axios from '../commons/axios';
 
 // コメントをコンテナに追加して表示する
 export const appendNewComment = (comment) => {
-  $('.comments-container').append(
-    `<div class="article_comment"><p>${comment.content}</p></div>`
-  );
+  const $comment = $('<div class="article_comment"><p></p></div>')
+    .find('p')
+    .text(comment.content);
+  $('.comments-container').append($comment);
 };
 
 export const setupCommentHandlers = (articleId) => {
